@@ -82,7 +82,7 @@ img {
 
     z-index: 1000;
 
-    background: rgba(7, 7, 7, 0.78);
+   
 
     backdrop-filter: blur(18px);
 
@@ -99,6 +99,21 @@ img {
 
     color: var(--gold);
 }
+
+
+@media (max-width:600px){
+
+.nav-links{
+    background: #000;
+}
+.nav-links a{
+    color: #fff !important;
+}
+.nav-links a:hover,
+.nav-links a.active{
+    color: #d4af37 !important;
+}
+}
 .logo h1{
       font-family: 'Playfair Display', serif;
 
@@ -110,15 +125,7 @@ float: left;
 
     color: var(--white);
 }
-.nav-links {
-    display: flex;
 
-    align-items: center;
-
-    gap: 35px;
-
-    list-style: none;
-}
 /* =================================
    CONTACT FORM
 ================================= */
@@ -281,16 +288,25 @@ float: left;
 
     .send-btn {
         padding: 15px;
+
     }
+
+}
+.nav-links{
+    display: flex;
+    gap: 35px;
+    text-decoration: none;
+    list-style: none;
 }
 .nav-links a {
     position: relative;
 
     font-size: 15px;
 
-    color: #d0d0d0;
+    text-decoration: none;
 
     transition: var(--transition);
+
 }
 
 .nav-links a:hover,
@@ -746,6 +762,7 @@ font-size: 20;
         box-sizing: border-box;
         padding: 25px;
     }
+   
 
 }
 
@@ -974,7 +991,9 @@ body.light-mode .form-group textarea{
     border: 1px solid gray;
     }
 
-
+body.light-mode .card1{
+    background-color: white;
+}
 .form-group textarea {
     min-height: 180px;
     background-color:#151515 ;
@@ -1244,6 +1263,7 @@ body.light-mode .form-group textarea{
 
     .navbar {
         padding: 18px 6%;
+        
     }
 
     .logo {
@@ -1318,7 +1338,6 @@ body.light-mode .form-group textarea{
 
    
 }
-
 /* =====================================
    HOME HERO - MOBILE RESPONSIVE
 ===================================== */
@@ -1394,6 +1413,7 @@ body.light-mode .form-group textarea{
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 8px;
+      
   }
 
   .social-links a {
