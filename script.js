@@ -1,0 +1,403 @@
+/* =====================================================
+   VIKTOR LUXURY PORTFOLIO
+   MAIN JAVASCRIPT
+   ===================================================== */
+
+
+/* =====================================================
+   CURRENT YEAR
+   ===================================================== */
+
+const year = document.getElementById("year");
+
+if (year) {
+    year.textContent = new Date().getFullYear();
+}
+
+
+/* =====================================================
+   MOBILE MENU
+   ===================================================== */
+
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuBtn && navLinks) {
+
+    menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    const links = navLinks.querySelectorAll("a");
+
+    links.forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("show");
+        });
+    });
+}
+
+
+/* =====================================================
+   DARK / LIGHT MODE
+   ===================================================== */
+
+const themeToggle = document.getElementById("theme-toggle");
+
+
+/* Load saved theme */
+
+if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+}
+
+
+/* Update theme icon */
+
+function updateThemeIcon() {
+
+    if (!themeToggle) return;
+
+    if (document.body.classList.contains("light-mode")) {
+
+        themeToggle.textContent = "◐";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+    } else {
+
+        themeToggle.textContent = "◑";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+    }
+}
+
+
+/* Set icon when page loads */
+
+updateThemeIcon();
+
+
+/* Theme button */
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("light-mode");
+
+        if (document.body.classList.contains("light-mode")) {
+
+            localStorage.setItem("theme", "light");
+
+        } else {
+
+            localStorage.setItem("theme", "dark");
+        }
+
+        updateThemeIcon();
+    });
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+   ===================================================== */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if (revealElements.length > 0) {
+
+    const revealObserver = new IntersectionObserver(
+        function (entries, observer) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "reveal-visible"
+                    );
+
+                    observer.unobserve(entry.target);
+                }
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealElements.forEach(function (element) {
+        revealObserver.observe(element);
+    });
+}
+
+
+/* =====================================================
+   SKILL BAR ANIMATION
+   ===================================================== */
+
+const skillBars = document.querySelectorAll(".skill-progress");
+
+if (skillBars.length > 0) {
+
+    const skillObserver = new IntersectionObserver(
+        function (entries, observer) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    const bar = entry.target;
+
+                    const progress =
+                        bar.getAttribute("data-progress");
+
+                    bar.style.width = progress + "%";
+
+                    observer.unobserve(bar);
+                }
+            });
+
+        },
+        {
+            threshold: 0.5
+        }
+    );
+
+    skillBars.forEach(function (bar) {
+        skillObserver.observe(bar);
+    });
+}
+
+
+/* =====================================================
+   CONTACT FORM
+   ===================================================== */
+
+const contactForm =
+    document.querySelector(".contact-form");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("name")?.value.trim();
+
+        const email =
+            document.getElementById("email")?.value.trim();
+
+        const subject =
+            document.getElementById("subject")?.value.trim();
+
+        const message =
+            document.getElementById("message")?.value.trim();
+
+
+        /* Required fields */
+
+        if (!name || !email || !message) {
+
+            alert(
+                "Please fill in your name, email and message."
+            );
+
+            return;
+        }
+
+
+        /* Email validation */
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+
+            alert(
+                "Please enter a valid email address."
+            );
+
+            return;
+        }
+
+
+        /* Show submitted information */
+
+        console.log("Contact Form Submission:");
+
+        console.log({
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        });
+
+
+        /* Success message */
+
+        alert(
+            "Thank you, " +
+            name +
+            "! Your message has been received."
+        );
+
+
+        /* Clear form */
+
+        contactForm.reset();
+    });
+}
+
+
+/* =====================================================
+   PROJECT CARD 3D EFFECT
+   ===================================================== */
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+projectCards.forEach(function (card) {
+
+    card.addEventListener("mousemove", function (event) {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX =
+            ((y - centerY) / centerY) * -5;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 5;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-5px)`;
+    });
+
+
+    card.addEventListener("mouseleave", function () {
+
+        card.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+    });
+
+});
+
+
+/* =====================================================
+   HERO IMAGE 3D EFFECT
+   ===================================================== */
+
+const heroImage =
+    document.querySelector(".hero-image");
+
+if (heroImage) {
+
+    document.addEventListener("mousemove", function (event) {
+
+        const x =
+            (window.innerWidth / 2 - event.clientX) / 60;
+
+        const y =
+            (window.innerHeight / 2 - event.clientY) / 60;
+
+        heroImage.style.transform =
+            `rotateY(${x}deg) rotateX(${y}deg)`;
+    });
+}
+
+
+/* =====================================================
+   BACK TO TOP
+   ===================================================== */
+
+const backTop =
+    document.querySelector(".back-top");
+
+if (backTop) {
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 500) {
+
+            backTop.classList.add("show");
+
+        } else {
+
+            backTop.classList.remove("show");
+        }
+    });
+
+
+    backTop.addEventListener("click", function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+
+/* =====================================================
+   BUTTON PRESS EFFECT
+   ===================================================== */
+
+const buttons =
+    document.querySelectorAll(".btn");
+
+buttons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        button.style.transform = "scale(0.96)";
+
+        setTimeout(function () {
+
+            button.style.transform = "";
+
+        }, 150);
+    });
+});
+// =========================
+// BACK TO TOP
+// =========================
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 400) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
+    }
+
+});
+
+backToTop.addEventListener("click", () => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
