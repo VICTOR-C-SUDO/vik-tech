@@ -183,80 +183,47 @@ if (skillBars.length > 0) {
    CONTACT FORM
    ===================================================== */
 
-const contactForm =
-    document.querySelector(".contact-form");
+// =================================
+// CONTACT FORM → WHATSAPP
+// =================================
+
+const contactForm = document.getElementById("contact-form");
 
 if (contactForm) {
 
     contactForm.addEventListener("submit", function (event) {
 
+        // Stop the page from refreshing
         event.preventDefault();
 
-        const name =
-            document.getElementById("name")?.value.trim();
+        // Get the form information
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-        const email =
-            document.getElementById("email")?.value.trim();
+        // YOUR WHATSAPP NUMBER
+        // Use 234 instead of the first 0
+        const phoneNumber = "234XXXXXXXXXX";
 
-        const subject =
-            document.getElementById("subject")?.value.trim();
+        // Create the WhatsApp message
+        const whatsappMessage =
+            `Hello Viktor,%0A%0A` +
+            `I found your portfolio website and would like to contact you.%0A%0A` +
+            `Name: ${encodeURIComponent(name)}%0A` +
+            `Email: ${encodeURIComponent(email)}%0A` +
+            `Subject: ${encodeURIComponent(subject)}%0A` +
+            `Message: ${encodeURIComponent(message)}`;
 
-        const message =
-            document.getElementById("message")?.value.trim();
+        // Create WhatsApp link
+        const whatsappURL =
+            `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
+        // Open WhatsApp
+        window.open(whatsappURL, "_blank");
 
-        /* Required fields */
-
-        if (!name || !email || !message) {
-
-            alert(
-                "Please fill in your name, email and message."
-            );
-
-            return;
-        }
-
-
-        /* Email validation */
-
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailPattern.test(email)) {
-
-            alert(
-                "Please enter a valid email address."
-            );
-
-            return;
-        }
-
-
-        /* Show submitted information */
-
-        console.log("Contact Form Submission:");
-
-        console.log({
-            name: name,
-            email: email,
-            subject: subject,
-            message: message
-        });
-
-
-        /* Success message */
-
-        alert(
-            "Thank you, " +
-            name +
-            "! Your message has been received."
-        );
-
-
-        /* Clear form */
-
-        contactForm.reset();
     });
+
 }
 
 
@@ -400,4 +367,7 @@ backToTop.addEventListener("click", () => {
         behavior: "smooth"
     });
 
+});
+window.addEventListener("load", function () {
+    document.getElementById("loader").classList.add("hide");
 });
