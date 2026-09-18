@@ -37,73 +37,44 @@ if (menuBtn && navLinks) {
     });
 }
 
+const themeToggle = document.getElementById("theme-toggle");
 
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("light-mode");
+
+        const icon = themeToggle.querySelector("i");
+
+        if (document.body.classList.contains("light-mode")) {
+
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Toggle dark mode"
+            );
+
+        } else {
+
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Toggle light mode"
+            );
+        }
+
+    });
+
+}
 /* =====================================================
    DARK / LIGHT MODE
    ===================================================== */
 
-const themeToggle = document.getElementById("theme-toggle");
-
-
-/* Load saved theme */
-
-if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light-mode");
-}
-
-
-/* Update theme icon */
-
-function updateThemeIcon() {
-
-    if (!themeToggle) return;
-
-    if (document.body.classList.contains("light-mode")) {
-
-        themeToggle.textContent = "◐";
-
-        themeToggle.setAttribute(
-            "aria-label",
-            "Switch to dark mode"
-        );
-
-    } else {
-
-        themeToggle.textContent = "◑";
-
-        themeToggle.setAttribute(
-            "aria-label",
-            "Switch to light mode"
-        );
-    }
-}
-
-
-/* Set icon when page loads */
-
-updateThemeIcon();
-
-
-/* Theme button */
-
-if (themeToggle) {
-
-    themeToggle.addEventListener("click", function () {
-
-        document.body.classList.toggle("light-mode");
-
-        if (document.body.classList.contains("light-mode")) {
-
-            localStorage.setItem("theme", "light");
-
-        } else {
-
-            localStorage.setItem("theme", "dark");
-        }
-
-        updateThemeIcon();
-    });
-}
 
 
 /* =====================================================
@@ -348,26 +319,49 @@ buttons.forEach(function (button) {
 // BACK TO TOP
 // =========================
 
+// =========================
+// BACK TO TOP
+// =========================
+
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
+if (backToTop) {
 
-    if (window.scrollY > 400) {
-        backToTop.classList.add("show");
-    } else {
-        backToTop.classList.remove("show");
-    }
+    window.addEventListener("scroll", () => {
 
-});
+        if (window.scrollY > 400) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
 
-backToTop.addEventListener("click", () => {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
     });
 
+    backToTop.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+// =========================
+// LOADING SCREEN
+// =========================
+
+const loader = document.getElementById("loader");
+
+if (loader) {
+
+    window.addEventListener("load", () => {
+
+        setTimeout(()=>{
+        loader.classList.add("hide");
+    },500);
+
 });
-window.addEventListener("load", function () {
-    document.getElementById("loader").classList.add("hide");
-});
+}

@@ -17,241 +17,15 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
  <link rel="stylesheet" href="style.css">
-    <style>
 
-        /* =========================
-           GENERAL
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0b0b0b;
-            color: #f5f5f5;
-            font-family: "Space Grotesk", sans-serif;
-            line-height: 1.6;
-        }
-
-        /* =========================
-           PROJECT PAGE
-        ========================= */
-
-        .project-details {
-            width: 90%;
-            max-width: 1150px;
-            margin: auto;
-            padding: 100px 0 80px;
-        }
-
-        /* Back button */
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: gray;
-            text-decoration: none;
-            font-size: 18px;
-            margin-bottom: 45px;
-            transition: 0.3s ease;
-        }
-
-        .back-button:hover {
-            transform: translateX(-5px);
-            opacity: 0.7;
-        }
-
-        /* Heading */
-
-        .project-details h1 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(38px, 6vw, 65px);
-            font-weight: 600;
-            text-align: center;
-            line-height: 1.15;
-            margin-bottom: 45px;
-        }
-
-        /* Accent line */
-
-        .title-line {
-            width: 70px;
-            height: 3px;
-            margin: -25px auto 45px;
-            background: #c9a227;
-            border-radius: 10px;
-        }
-
-        /* =========================
-           SCREENSHOT
-        ========================= */
-
-        .project-image {
-            width: 100%;
-            max-width: 700px;
-            margin: 0 auto 55px;
-            padding: 10px;
-            background: #151515;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 18px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-            
-        }
-
-        .project-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        /* =========================
-           CONTENT
-        ========================= */
-
-        .project-content {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        .project-content h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 28px;
-            font-weight: 600;
-            margin-top: 45px;
-            margin-bottom: 15px;
-        }
-
-        .project-content p {
-            color: gray;
-            font-size: 18px;
-            line-height: 1.9;
-        }
-
-        /* Technologies */
-
-        .technologies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .technology {
-            padding: 8px 15px;
-            border: 1px solid rgba(201,162,39,0.45);
-            border-radius: 30px;
-            color: #e6c65c;
-            font-size: 14px;
-        }
-
-        /* Features */
-
-        .project-content ul {
-            padding-left: 22px;
-            margin-top: 10px;
-        }
-
-        .project-content li {
-            color: gray;
-            margin-bottom: 9px;
-        }
-
-        /* =========================
-           DEMO BUTTON
-        ========================= */
-
-        .project-demo {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 40px;
-            padding: 14px 25px;
-            background: #c9a227;
-            color: #080808;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: 0.3s ease;
-        }
-
-        .project-demo:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(201,162,39,0.2);
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 768px) {
-
-            .project-details {
-                width: 92%;
-                padding: 70px 0 50px;
-            }
-
-            .back-button {
-                margin-bottom: 30px;
-            }
-
-            .project-details h1 {
-                font-size: 36px;
-                margin-bottom: 35px;
-            }
-
-            .title-line {
-                margin-top: -18px;
-                margin-bottom: 30px;
-            }
-
-            .project-image {
-                padding: 6px;
-                border-radius: 12px;
-                margin-bottom: 35px;
-            }
-
-            .project-image img {
-                border-radius: 7px;
-            }
-
-            .project-content h2 {
-                font-size: 24px;
-                margin-top: 35px;
-            }
-
-            .project-content p {
-                font-size: 15px;
-                line-height: 1.8;
-            }
-
-            .project-demo {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-.private-note {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #999;
-}
-
-.private-note i {
-  color: #c9a227;
-  margin-right: 6px;
-}
-    </style>
 </head>
 
 <body>
     <div id="loader">
     <div class="loader-content">
-        <div class="loader-logo">VIK  𝓣𝓔𝓒𝓗</div>
+        <div class="loader-logo"> 𝓣𝓔𝓒𝓗
+            <h3> VIK</h3>
+        </div>
         <div class="loader-spinner"></div>
         <p>Loading...</p>
     </div>
@@ -267,7 +41,7 @@
             <ul class="nav-links">
 
                 <li>
-                    <a href="index.html" class="active">
+                    <a href="index.html">
                         Home
                     </a>
                 </li>
@@ -297,16 +71,16 @@
 
             </ul>
         </nav>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-    ◐
+     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon"></i>
 </button>
 
     </header>
-
+<section>
     <main class="project-details">
 
         <!-- Back to Portfolio -->
-        <a href="home.html" class="back-button">
+        <a href="index.html" class="back-button">
             <i class="fas fa-arrow-left"></i>
             Back to Portfolio
         </a>
@@ -323,7 +97,6 @@
                  alt="Event Management Website">
 
         </div>
-
         <!-- Project Information -->
         <div class="project-content">
 
@@ -373,7 +146,7 @@
 
 
             <!-- Live Demo -->
-            <a href="YOUR-LIVE-DEMO-LINK"
+            <a href="404.html"
                class="project-demo"
                target="_blank"
                rel="noopener">
@@ -387,9 +160,14 @@
   <i class="fas fa-lock"></i>
   Source code is currently private.
 </p>
+     
+</section>
         </div>
-
+          <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>    
     </main>
+  
  <footer>
 
         <p>
