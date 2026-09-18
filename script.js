@@ -204,7 +204,7 @@ if (contactForm) {
 
         // YOUR WHATSAPP NUMBER
         // Use 234 instead of the first 0
-        const phoneNumber = "234XXXXXXXXXX";
+        const phoneNumber = "2349076494022";
 
         // Create the WhatsApp message
         const whatsappMessage =
@@ -217,7 +217,7 @@ if (contactForm) {
 
         // Create WhatsApp link
         const whatsappURL =
-            `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+            `https://wa.me/${2349076494022}?text=${whatsappMessage}`;
 
         // Open WhatsApp
         window.open(whatsappURL, "_blank");

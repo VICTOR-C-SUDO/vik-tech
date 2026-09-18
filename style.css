@@ -112,6 +112,7 @@ img {
 .nav-links a:hover,
 .nav-links a.active{
     color: #d4af37 !important;
+    
 }
 }
 .logo h1{
@@ -181,6 +182,7 @@ float: left;
 #contact-form {
     width: 100%;
 }
+
 
 .form-row {
     display: grid;
@@ -308,7 +310,6 @@ float: left;
     transition: var(--transition);
 
 }
-
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--gold);
@@ -723,8 +724,8 @@ font-size: 20;
 
 /* Heading */
 .card-grid h3 {
-    color: #fff;
-    font-size: 1.2rem;
+    color:#fff ;
+    font-size: 1.9rem;
     margin-bottom: 12px;
 }
 
@@ -859,8 +860,24 @@ font-size: 20;
     transition: 0.35s ease;
 
     transform-style: preserve-3d;
+    box-sizing: border-box;
 }
+@media (max-width: 600px) {
 
+    .projects-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .project-card {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 25px;
+    }
+   
+
+}
 
 .project-card:hover {
     border-color: var(--gold);
@@ -871,11 +888,11 @@ font-size: 20;
 
 .project-card img {
     width: 100%;
-
-    height: 320px;
+display: block;
+    height: auto;
 
     object-fit: cover;
-
+max-width: 100%;
     transition: 0.5s ease;
 }
 
@@ -1356,9 +1373,7 @@ body.light-mode .card1{
     gap: 45px;
     overflow: hidden;
   }
-.card{
-    width: 100%;
-}
+ 
   /* Hero text */
   .hero-content {
     width: 100%;
@@ -1771,11 +1786,11 @@ background-color: white;
     position: relative;
     padding: 38px 32px;
     min-height: 330px;
-
+width: 100%;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 20px;
-
+box-sizing: border-box;
     overflow: hidden;
 
     transition:
@@ -2122,10 +2137,10 @@ body.light-mode .feature {
    TABLET
    ========================================================= */
 
-@media (max-width: 950px) {
+@media (max-width: 768px) {
 
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .why-container {
