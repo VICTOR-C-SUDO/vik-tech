@@ -361,7 +361,7 @@ if (loader) {
 
         setTimeout(()=>{
         loader.classList.add("hide");
-    },500);
+    },);
 
 });
 }
