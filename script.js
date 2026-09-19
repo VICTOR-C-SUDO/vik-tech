@@ -37,40 +37,8 @@ if (menuBtn && navLinks) {
     });
 }
 
-const themeToggle = document.getElementById("theme-toggle");
 
-if (themeToggle) {
 
-    themeToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("light-mode");
-
-        const icon = themeToggle.querySelector("i");
-
-        if (document.body.classList.contains("light-mode")) {
-
-            icon.classList.remove("fa-moon");
-            icon.classList.add("fa-sun");
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Toggle dark mode"
-            );
-
-        } else {
-
-            icon.classList.remove("fa-sun");
-            icon.classList.add("fa-moon");
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Toggle light mode"
-            );
-        }
-
-    });
-
-}
 /* =====================================================
    DARK / LIGHT MODE
    ===================================================== */
@@ -364,4 +332,107 @@ if (loader) {
     },);
 
 });
+}
+// ===============================
+// DARK / LIGHT MODE
+// ===============================
+
+// ===============================
+// DARK / LIGHT MODE
+// ========================================
+// VIK TECH THEME TOGGLE
+// ========================================
+
+const themeToggle = document.getElementById("theme-toggle");
+
+
+// Get the icon inside the button
+const themeIcon = themeToggle
+    ? themeToggle.querySelector("i")
+    : null;
+
+
+// ========================================
+// APPLY SAVED THEME BEFORE/WHEN PAGE LOADS
+// ========================================
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+
+    document.body.classList.add("light-mode");
+
+    if (themeIcon) {
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+    }
+
+} else {
+
+    document.body.classList.remove("light-mode");
+
+    if (themeIcon) {
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+    }
+
+}
+
+
+// ========================================
+// TOGGLE THEME
+// ========================================
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", function () {
+
+        // Switch light/dark mode
+        document.body.classList.toggle("light-mode");
+
+
+        // Check current mode
+        const isLightMode =
+            document.body.classList.contains("light-mode");
+
+
+        // ====================================
+        // SAVE THEME
+        // ====================================
+
+        if (isLightMode) {
+
+            localStorage.setItem("theme", "light");
+
+        } else {
+
+            localStorage.setItem("theme", "dark");
+
+        }
+
+
+        // ====================================
+        // CHANGE ICON
+        // ====================================
+
+        if (themeIcon) {
+
+            if (isLightMode) {
+
+                // Light mode = Sun
+                themeIcon.classList.remove("fa-moon");
+                themeIcon.classList.add("fa-sun");
+
+            } else {
+
+                // Dark mode = Moon
+                themeIcon.classList.remove("fa-sun");
+                themeIcon.classList.add("fa-moon");
+
+            }
+
+        }
+
+    });
+
 }
