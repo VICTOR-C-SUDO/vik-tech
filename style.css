@@ -351,13 +351,17 @@ float: left;
 
 .form-group {
     margin-bottom: 22px;
+    
+
 }
+
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: #ddd;
+    color: #ddD;
     font-size: 0.9rem;
+    
 }
 
 .form-group input,
@@ -368,7 +372,6 @@ float: left;
     border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 10px;
     outline: none;
-    background: #080808;
     color: #fff;
     font-family: inherit;
     font-size: 0.95rem;
@@ -378,19 +381,25 @@ float: left;
 .form-group textarea {
     resize: vertical;
     min-height: 160px;
+    
+    
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: #666;
+    color:#666;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: #d4af37;
     box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.08);
+    color: white;
 }
-
+body.dark-mode.form-group input:focus,
+.form-group textarea:focus{
+    color: white;
+}
 
 /* Send button */
 
@@ -1126,6 +1135,7 @@ max-width: 100%;
   border: 1px solid #333;
   border-radius: 10px;
   padding: 18px;
+  
 }
 
 
@@ -1165,12 +1175,12 @@ body.light-mode .form-group input,.form-group textarea {
 body.light-mode .form-group textarea{
    background-color: white;
     border: 1px solid gray;
-    color: #000;
+    color: black;
     
     }
 
 body.light-mode .card1{
-    background-color: white;
+    background-color: black;
 }
 .form-group textarea {
     min-height: 180px;
