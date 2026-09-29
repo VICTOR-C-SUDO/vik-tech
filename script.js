@@ -436,3 +436,40 @@ if (themeToggle) {
     });
 
 }
+// =====================================
+// VIK TECH ID CARD 3D EFFECT
+// =====================================
+
+const idCard = document.getElementById("idCard");
+
+if (idCard) {
+
+    idCard.addEventListener("mousemove", function (event) {
+
+        const rect = idCard.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX =
+            ((y - centerY) / centerY) * -7;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 7;
+
+        idCard.style.transform =
+            `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+    });
+
+    idCard.addEventListener("mouseleave", function () {
+
+        idCard.style.transform =
+            "rotateX(0deg) rotateY(0deg)";
+
+    });
+
+}
